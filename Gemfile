@@ -17,7 +17,6 @@ gem 'rspec'
 gem "better_errors"
 gem "binding_of_caller"  
 gem 'racksh'
-gem 'aescrypt'
 gem 'url_safe_base64'
 gem 'bcrypt'
 
