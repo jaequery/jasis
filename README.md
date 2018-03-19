@@ -16,7 +16,7 @@
 
 ### What is Jasis?
 
-Jasis is a ultra-lightweight starter kit based on Sinatra framework to rapidly deploy a website.
+Jasis is an ultra-lightweight website starter kit based on Sinatra framework.
 
 ### Why Jasis?
 
