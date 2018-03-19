@@ -9,7 +9,7 @@ app:
   - db:db
   - redis:redis
   environment:
-    - VIRTUAL_HOST=composekit.com
+    - VIRTUAL_HOST=jasis.com
     - VIRTUAL_PORT=3000
     - BUNDLE_PATH=/app/volumes/bundler
     - RACK_ENV=development
