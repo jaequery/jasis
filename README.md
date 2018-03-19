@@ -26,7 +26,8 @@ It is minimal to the core, but it still has all the features you need, such as:
 * Models & Migrations
 * Redis Storage
 * Easy templating with ERB
-* Live error debugger
+* Live error debugging with BetterErrors
+* 100% Docker-based environment
 
 *** What's the story?
 
