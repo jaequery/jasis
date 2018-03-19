@@ -1,0 +1,37 @@
+app:
+  build: .
+  command: bin/init.sh
+  volumes:
+    - .:/app    
+  ports:
+    - "3000"
+  links:
+  - db:db
+  - redis:redis
+  environment:
+    - VIRTUAL_HOST=sinatra.docker
+    - VIRTUAL_PORT=3000
+    - BUNDLE_PATH=/app/volumes/bundler
+    - RACK_ENV=development
+    - POSTGRES_PASSWORD=app
+    - POSTGRES_DB=app
+    - DB=postgres://postgres:app@db/app
+    - SESSION_KEY=hak1234
+
+db:
+  image: postgres
+  environment:
+    - POSTGRES_PASSWORD=app
+    - POSTGRES_DB=app
+  volumes:
+    - ./db/sql:/db/sql
+  tty: true
+  ports:
+    - "5432"
+
+redis:
+  image: 'bitnami/redis:latest'
+  environment:
+    - ALLOW_EMPTY_PASSWORD=yes
+  ports:
+    - '6379'
