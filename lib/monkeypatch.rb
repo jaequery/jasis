@@ -112,9 +112,3 @@ class String
 
 end
 
-class BigDecimal
-  old_to_s = instance_method :to_s
-  define_method :to_s do |param='F'|
-    old_to_s.bind(self).(param)
-  end
-end
