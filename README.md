@@ -11,8 +11,7 @@
 1) git clone https://github.com/jaequery/jasis
 2) cd jasis
 3) docker-compose up -d
-4) ./bin/db_migrate.sh
-5) your site should now show up on http://jasis.docker (change VIRTUAL_HOST from docker-compose.yml)
+4) your site should now show up on http://jasis.docker (update VIRTUAL_HOST from docker-compose.yml)
 
 
 ### What is Jasis?
