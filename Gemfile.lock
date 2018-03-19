@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aescrypt (1.0.0)
     awesome_print (1.8.0)
     backports (3.11.1)
     bacon (1.2.0)
@@ -91,7 +90,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aescrypt
   awesome_print
   bcrypt
   better_errors
