@@ -3,8 +3,14 @@ class App < Sinatra::Base
   # set folder for templates to ../views, but make the path absolute
   set :views, File.expand_path('../../views', __FILE__)
 
+  helpers do
+    def output(obj, code = 200) 
+      halt code, obj.to_json
+    end
+  end
+  
   configure :development do
-
+    
     register Sinatra::Reloader
     
     bettererrors = false if bettererrors.nil?
