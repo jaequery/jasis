@@ -1,12 +1,14 @@
 module Sequel
   class Model
     module ClassMethods
+
       def skeleton
         row = self.first
         row.each{|k, v|
           row[k] = nil
         }
       end
+
       def list(params)
         q = self
 
@@ -31,6 +33,7 @@ module Sequel
         # retrieve
         return q
       end
+      
     end
 
     module InstanceMethods
