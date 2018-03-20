@@ -1,6 +1,15 @@
+# load sinatra
+require 'sinatra'
+
+
 # init auto-loader
 require 'require_all'
 require_all 'lib'
+require_all 'apps'
+
+# set views
+set :root, File.dirname(__FILE__)
+set :views, Proc.new { File.join(root, "app/views") }
 
 
 # init development 
@@ -54,3 +63,4 @@ use Rack::Session::Moneta,
  })
 
  
+
