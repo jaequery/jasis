@@ -2,29 +2,19 @@
 require 'sinatra'
 
 
+# init development 
+if development?
+  require 'ap' # pretty print
+  require 'sinatra/reloader' # hot-reload
+  require "better_errors" # bettererror
+end
+
+
 # init auto-loader
 require 'require_all'
 require_all 'lib'
-require_all 'apps'
+require_all 'controllers'
 
-# set views
-set :root, File.dirname(__FILE__)
-set :views, Proc.new { File.join(root, "app/views") }
-
-
-# init development 
-if development?
-
-  require 'ap' # pretty print
-  require 'sinatra/reloader' # hot-reload
-
-  # bettererror
-  require "better_errors"
-  enable :dump_errors, :raise_errors
-  use BetterErrors::Middleware
-  BetterErrors::Middleware.allow_ip! '172.0.0.0/0'
-  
-end
 
 
 # init logging

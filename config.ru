@@ -1,6 +1,7 @@
 require './config'
 
 # set controllers
-use AdminController
-run DefaultController
+map('/admin') { run AdminApp }
+map('/') { run SiteApp }
+
 
