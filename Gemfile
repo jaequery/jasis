@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 gem 'rake'
 gem 'json'
+gem 'activesupport'
 gem 'sinatra-contrib'
 gem 'require_all'
 gem 'sequel'

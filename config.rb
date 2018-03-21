@@ -1,6 +1,6 @@
 # load sinatra
 require 'sinatra'
-
+require 'active_support/all'
 
 # init development 
 if development?

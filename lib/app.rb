@@ -1,7 +1,10 @@
 class App < Sinatra::Base
   
   # set folder for templates to ../views, but make the path absolute
-  set :views, File.expand_path('../../views', __FILE__)
+  set :views, File.expand_path('../../views', __FILE__)  
+  set :root, File.dirname(__FILE__)
+  set :public_folder, 'public'
+  set :static, true
 
   helpers do
 
