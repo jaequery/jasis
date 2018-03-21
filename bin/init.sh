@@ -1,6 +1,12 @@
 #!/bin/bash
 bundle
 rake db:migrate
-rackup -s puma -o 0.0.0.0 -p 3000
-#passenger start --pool-idle-time=0
-#puma -b tcp://0.0.0.0:3000
+if [ "$RACK_ENV" = "development" ]
+then
+  #rerun --background "rackup -s puma -o 0.0.0.0 -p 3000"  
+  puma -b tcp://0.0.0.0:3000
+else
+  puma -b tcp://0.0.0.0:3000
+  #rackup -s puma -o 0.0.0.0 -p 3000
+fi
+

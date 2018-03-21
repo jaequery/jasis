@@ -1,21 +1,20 @@
-# init auto-loader
-require 'require_all'
-require_all 'lib'
-
+# load sinatra
+require 'sinatra'
+require 'active_support/all'
 
 # init development 
 if development?
-
   require 'ap' # pretty print
   require 'sinatra/reloader' # hot-reload
-
-  # bettererror
-  require "better_errors"
-  enable :dump_errors, :raise_errors
-  use BetterErrors::Middleware
-  BetterErrors::Middleware.allow_ip! '172.0.0.0/0'
-  
+  require "better_errors" # bettererror
 end
+
+
+# init auto-loader
+require 'require_all'
+require_all 'lib'
+require_all 'controllers'
+
 
 
 # init logging
@@ -54,3 +53,4 @@ use Rack::Session::Moneta,
  })
 
  
+

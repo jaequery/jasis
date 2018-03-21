@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 gem 'rake'
 gem 'json'
+gem 'activesupport'
 gem 'sinatra-contrib'
 gem 'require_all'
 gem 'sequel'
@@ -10,13 +11,9 @@ gem 'sinatra-sequel'
 gem 'pg'
 gem 'sequel_pg', :require=>'sequel'
 gem 'awesome_print'
-gem 'passenger'
-gem 'thin'
 gem 'puma'
 gem 'webrick'
-gem 'rspec'
-gem "better_errors"
-gem "binding_of_caller"  
+gem 'thin'
 gem 'racksh'
 gem 'url_safe_base64'
 gem 'bcrypt'
@@ -26,4 +23,12 @@ gem 'redis-rack',  :require => 'rack/session/redis'
 gem 'jwt'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'rack-parser', :require => 'rack/parser'
+gem 'rerun'
+
+
+group :development, :test do
+  gem 'rspec'
+  gem "better_errors"
+  gem "binding_of_caller"  
+end
 
