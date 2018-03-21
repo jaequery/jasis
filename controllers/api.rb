@@ -5,7 +5,7 @@ class ApiApp < App
   end
 
   get '/test' do    
-    output({:msg => 'testing 404'}, 404)
+    output({msg: 'testing 404'}, 404)
   end
   
 end

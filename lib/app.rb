@@ -4,8 +4,11 @@ class App < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
 
   helpers do
-    def output(obj, code = 200) 
-      halt code, obj.to_json
+
+    # outputs json response with http status code 
+    def output(obj, code = 200)      
+      halt code, obj.to_json if obj.present?
+      return false
     end
   end
   
