@@ -4,6 +4,7 @@ class App < Sinatra::Base
   configure do
 
     # enable session
+    enable :sessions
     use Rack::Session::Pool
     
     # set defaults
@@ -11,6 +12,7 @@ class App < Sinatra::Base
     set :root, File.dirname(__FILE__)
     set :public_folder, 'public'
     set :static, true
+    set :strict_paths, false
     
     # set omniauth    
     use OmniAuth::Builder do
