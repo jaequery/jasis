@@ -47,11 +47,16 @@ Sequel::Model.db.extension(:pagination)
 Sequel::Model.strict_param_setting = false
 DB.extension(:connection_validator)
 DB.pool.connection_validation_timeout = -1
+require_all 'models'
 
+# sequel extensions
+require 'sequel/extensions/seed'
+Sequel.extension :seed
+Sequel::Seeder.apply(DB, "db/seeds")
 
 # autoload
 require_all 'lib'
 require_all 'controllers'
-require_all 'models'
+
 
 

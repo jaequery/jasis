@@ -6,6 +6,8 @@ Sequel.migration do
       String :last_name      
       String :email
       String :password
+      String :role
+      String :provider
       DateTime :created_at
       DateTime :updated_at
     end
