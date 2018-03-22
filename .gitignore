@@ -6,3 +6,4 @@ volumes/bundler
 .DS_Store
 log/*log
 *~
+*.lock
