@@ -1,6 +1,18 @@
 # load sinatra
 require 'sinatra'
+
+
+# load dotenv
+require 'dotenv/load'
+
+
+# load activesupport
 require 'active_support/all'
+
+
+# load autoloader
+require 'require_all'
+
 
 # init development 
 if development?
@@ -10,11 +22,10 @@ if development?
 end
 
 
-# init auto-loader
-require 'require_all'
-require_all 'lib'
-require_all 'controllers'
-
+# init omniauth
+require 'omniauth'
+require 'omniauth-facebook'
+require 'omniauth-instagram'
 
 
 # init logging
@@ -36,21 +47,11 @@ Sequel::Model.db.extension(:pagination)
 Sequel::Model.strict_param_setting = false
 DB.extension(:connection_validator)
 DB.pool.connection_validation_timeout = -1
+
+
+# autoload
+require_all 'lib'
+require_all 'controllers'
 require_all 'models'
 
-# init sessions
-enable :sessions
-require 'rack/session/moneta'
-use Rack::Session::Moneta,
- domain:         '*',
- path:           '/',
- expire_after:   30*24*60*60, # one month
- secret:         ENV['SESSION_KEY'],
- store:          Moneta.new(:Redis, {
-     url:            'redis://redis:6379/0',
-     expires:        true,
-     threadsafe:     true
- })
-
- 
 

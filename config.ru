@@ -1,4 +1,4 @@
-require './config'
+require './boot'
 
 # set controllers
 map('/admin') { run AdminApp }

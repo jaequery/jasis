@@ -1,11 +1,11 @@
 class AdminApp < App
   
   configure do
-    set :erb, :layout => :admin_layout
+    set :erb, :layout => :'admin/layout'
   end
 
   get '/' do
-    erb :admin
+    erb :'admin/index'
   end
 
 end

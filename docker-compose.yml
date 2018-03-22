@@ -7,7 +7,6 @@ app:
     - "3000"
   links:
   - db:db
-  - redis:redis
   environment:
     - VIRTUAL_HOST=jasis.docker
     - VIRTUAL_PORT=3000
@@ -28,10 +27,3 @@ db:
   tty: true
   ports:
     - "5432"
-
-redis:
-  image: 'bitnami/redis:latest'
-  environment:
-    - ALLOW_EMPTY_PASSWORD=yes
-  ports:
-    - '6379'

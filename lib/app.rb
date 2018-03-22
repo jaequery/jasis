@@ -1,21 +1,27 @@
 class App < Sinatra::Base
-  
-  # set folder for templates to ../views, but make the path absolute
-  set :views, File.expand_path('../../views', __FILE__)  
-  set :root, File.dirname(__FILE__)
-  set :public_folder, 'public'
-  set :static, true
 
-  helpers do
+  # base configuration
+  configure do
 
-    # outputs json response with http status code 
-    def output(obj, code = 200)      
-      halt code, obj.to_json if obj.present?
-      return false
+    # enable session
+    use Rack::Session::Pool
+    
+    # set defaults
+    set :views, File.expand_path('../../views', __FILE__)  
+    set :root, File.dirname(__FILE__)
+    set :public_folder, 'public'
+    set :static, true
+    
+    # set omniauth    
+    use OmniAuth::Builder do
+      provider :facebook,  ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'] if ENV['FACEBOOK_KEY'].present?
+      provider :instagram,  ENV['INSTAGRAM_KEY'], ENV['INSTAGRAM_SECRET'] if ENV['INSTAGRAM_KEY'].present?
     end
+
   end
-  
-  configure :development do
+
+  # dev configuration
+  configure :development do        
     
     register Sinatra::Reloader
     
@@ -28,10 +34,22 @@ class App < Sinatra::Base
     end
 
   end
+
+  # helpers
+  helpers do
+
+    # outputs json response with http status code 
+    def output(obj, code = 200)      
+      halt code, obj.to_json if obj.present?
+      return false
+    end
+
+  end
   
   # will be used to display 404 error pages
   # not_found do
   #   title 'Not Found!'
   #   erb :not_found
   # end
+
 end
