@@ -11,7 +11,7 @@ app:
     - VIRTUAL_HOST=jasis.jaequery.com
     - VIRTUAL_PORT=3000
     - BUNDLE_PATH=/app/volumes/bundler
-    - RACK_ENV=development
+    - RACK_ENV=production
     - POSTGRES_PASSWORD=app
     - POSTGRES_DB=app
     - DB=postgres://postgres:app@db/app
