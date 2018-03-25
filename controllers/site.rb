@@ -17,5 +17,11 @@ class SiteApp < App
     "name is: #{session[:name]}"
   end
 
+  get '/email' do
+
+    res = email({:to => 'jaequery@gmail.com', :subject => 'hi'}, {:file => "emails/welcome.liquid", :data => {'name' => 'watup'} })
+    res
+  end
+
 end
 

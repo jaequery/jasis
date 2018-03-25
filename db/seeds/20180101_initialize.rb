@@ -4,8 +4,7 @@ Sequel.seed do
     user = User.new
     user.email = 'test@test.com'
     user.first_name = 'Jae'
-    user.last_name = 'Lee'
-    user.username = 'admin'
+    user.last_name = 'Lee'    
     user.password = 'asdfasdf'    
     user.role = 'admin'
     user.provider = 'email'    

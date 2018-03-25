@@ -49,10 +49,21 @@ DB.extension :pg_array, :pg_json, :connection_validator
 DB.pool.connection_validation_timeout = -1
 require_all 'models'
 
+
+# init mailer
+require 'pony'
+require 'liquid'
+
+
 # sequel extensions
 require 'sequel/extensions/seed'
 Sequel.extension :seed
 Sequel::Seeder.apply(DB, "db/seeds")
+
+
+# load app
+require './app'
+
 
 # autoload
 require_all 'lib'
