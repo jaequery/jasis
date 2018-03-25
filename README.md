@@ -25,6 +25,7 @@ It is minimal to the core, but it still has all the features you need, such as:
 * Postgres w/ JSONB support
 * Models & Migrations & Seeds
 * Easy templating with ERB
+* Easy to use emails and template support w/ Liquid
 * Live error debugging with BetterErrors
 * 100% Docker-based environment
 * Development / Production environment ready
