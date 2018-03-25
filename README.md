@@ -18,19 +18,27 @@
 
 Jasis is an ultra-lightweight website starter kit based on Sinatra framework. By utilizing Docker, it is out-of-the-box development and production ready.
 
-### Why Jasis?
+### What does it provide?
 
 It is minimal to the core, but it still has all the features you need, such as:
 
 * Postgres w/ JSONB support
-* Models & Migrations
-* Redis Storage
+* Models & Migrations & Seeds
 * Easy templating with ERB
+* Easy to use emails and template support w/ Liquid
 * Live error debugging with BetterErrors
 * 100% Docker-based environment
-* Development / Production environment
-* Deployment script to remote servers
+* Development / Production environment ready
+* Easy deployment to remote servers
 
 ### What's the story?
 
 Jasis was inspired by Padrino. But due to their lack of updates and support, I decided I need to start my own without adding any too much syntatic sugars to an incredibly minimal Sinatra.
+
+### What is Jasis?
+
+1. No more black magic (you should know how everything that gets loaded)
+2. Less way of doing things the better (less files, less methods, less everything)
+3. Keep things stupidly simple (no more crazy class structures, only simple and straight forward approach)
+4. Light-weight boilerplate (needs to be fast and performant)
+5. 1-step setup and 1-step deploy
