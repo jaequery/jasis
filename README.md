@@ -34,3 +34,13 @@ It is minimal to the core, but it still has all the features you need, such as:
 ### What's the story?
 
 Jasis was inspired by Padrino. But due to their lack of updates and support, I decided I need to start my own without adding any too much syntatic sugars to an incredibly minimal Sinatra.
+
+### What is Jasis?
+
+This is the core of Jasis: 
+
+1. No more black magic (you should know how everything that gets loaded)
+2. Less way of doing things the better (less files, less methods, less everything)
+3. Keep things stupidly simple (no more crazy class structures, only simple and straight forward approach)
+4. Light-weight boilerplate (needs to be fast and performant)
+5. 1-step setup and 1-step deploy
