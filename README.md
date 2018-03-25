@@ -36,8 +36,6 @@ Jasis was inspired by Padrino. But due to their lack of updates and support, I d
 
 ### What is Jasis?
 
-This is the core of Jasis: 
-
 1. No more black magic (you should know how everything that gets loaded)
 2. Less way of doing things the better (less files, less methods, less everything)
 3. Keep things stupidly simple (no more crazy class structures, only simple and straight forward approach)
