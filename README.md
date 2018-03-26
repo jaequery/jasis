@@ -33,7 +33,13 @@ docker run --name=proxy --restart=always -d -p 80:80 -v /var/run/docker.sock:/tm
 
 ### Things you can do
 
-### dotenv for dev / production environment variables
+
+#### error debugging with bettererrors 
+
+![screenshot](https://d3vv6lp55qjaqc.cloudfront.net/items/2w1d3G2t1T2D3A391r2E/Image%202018-03-26%20at%208.45.20%20AM.png?X-CloudApp-Visitor-Id=1367442&v=280965c1)
+
+
+#### dotenv for dev / production environment variables
 To set environmental variables depending on your environment, we used dotenv. You simply place a .env file at the root of the app folder.
 
 .env (base)
