@@ -1,5 +1,7 @@
 # Ruby Starter Framework
 
+Jasis is an eloquent Ruby framework, that provides you boilerplate code to get you started as quickly as possible.
+
 ### Pre-requisites
 
 1) docker
