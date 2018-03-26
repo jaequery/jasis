@@ -1,4 +1,4 @@
-# Docker Ruby / Sinatra 
+# Ruby Starter Framework
 
 ### Pre-requisites
 
@@ -42,3 +42,20 @@ Jasis was inspired by Padrino. But due to their lack of updates and support, I d
 3. Keep things stupidly simple (no more crazy class structures, only simple and straight forward approach)
 4. Light-weight boilerplate (needs to be fast and performant)
 5. 1-step setup and 1-step deploy
+
+### Things you can do
+
+#### Send Emails
+
+1. Configure your SMTP settings from the .env file
+2. Call the email() helper function within the controllers
+
+Standard Email
+```
+email({:from => 'me@email.com', :to => 'user@email.com', :subject => 'hi', :body => 'Hello'})
+```
+
+Email through a liquid file
+```
+email({:to => 'user@email.com', :subject => 'hi'}, {:file => "emails/welcome.liquid", :data => {'name' => 'john'} })
+```
