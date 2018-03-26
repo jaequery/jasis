@@ -31,8 +31,7 @@ docker run --name=proxy --restart=always -d -p 80:80 -v /var/run/docker.sock:/tm
 4) your site should now show up on http://jasis.docker (update VIRTUAL_HOST from docker-compose.yml)
 
 
-### Things you can do
-
+### Some of the essential features that makes Jasis great!
 
 #### error debugging with bettererrors 
 
