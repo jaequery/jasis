@@ -1,7 +1,7 @@
 # Ruby Starter Framework
 
 Jasis is an eloquent Ruby framework, that provides you a nice boilerplate code to get you started developing websites as quickly as possible.
-It was inspired heavily by Padrino, but it takes one notch further in terms of simplification by keeping Sinatra to it's core as much as possible. You won't see any Jasis library here, it will be just several Ruby gems put together on top of the Sinatra framework.
+It was inspired heavily by Padrino, but it takes it a notch further in terms of simplification by keeping Sinatra to it's core as much as possible. You won't see any Jasis library here, it will be just several Ruby gems put together on top of the Sinatra framework.
 
 ### What is Jasis?
 
