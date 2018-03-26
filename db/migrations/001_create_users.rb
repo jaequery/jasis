@@ -4,8 +4,8 @@ Sequel.migration do
       primary_key :id
       String :first_name
       String :last_name      
-      String :email
-      String :password
+      String :email      
+      String :password_digest
       String :role
       String :provider
       DateTime :created_at
