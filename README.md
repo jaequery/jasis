@@ -1,6 +1,16 @@
 # Ruby Starter Framework
 
 Jasis is an eloquent Ruby framework, that provides you boilerplate code to get you started as quickly as possible.
+It was inspired heavily by Padrino, but it takes one notch further in terms of simplification by keeping Sinatra to it's core as much as possible. You won't see any Jasis library here, it will be just several Ruby gems put together on top of the Sinatra framework.
+
+### What is Jasis?
+
+1. No more black magic (you should know how everything that gets loaded)
+2. Less way of doing things the better (less files, less methods, less everything)
+3. Keep things stupidly simple (no more crazy class structures, only simple and straight forward approach)
+4. Light-weight boilerplate (needs to be fast and performant)
+5. 1-step setup and 1-step deploy
+
 
 ### Pre-requisites
 
@@ -21,36 +31,27 @@ docker run --name=proxy --restart=always -d -p 80:80 -v /var/run/docker.sock:/tm
 4) your site should now show up on http://jasis.docker (update VIRTUAL_HOST from docker-compose.yml)
 
 
-### What is Jasis?
-
-Jasis is an ultra-lightweight website starter kit based on Sinatra framework. By utilizing Docker, it is out-of-the-box development and production ready.
-
-### What does it provide?
-
-It is minimal to the core, but it still has all the features you need, such as:
-
-* Postgres w/ JSONB support
-* Models & Migrations & Seeds
-* Easy templating with ERB
-* Easy to use emails and template support w/ Liquid
-* Live error debugging with BetterErrors
-* 100% Docker-based environment
-* Development / Production environment ready
-* Easy deployment to remote servers
-
-### What's the story?
-
-Jasis was inspired by Padrino. But due to their lack of updates and support, I decided I need to start my own without adding any too much syntatic sugars to an incredibly minimal Sinatra.
-
-### What is Jasis?
-
-1. No more black magic (you should know how everything that gets loaded)
-2. Less way of doing things the better (less files, less methods, less everything)
-3. Keep things stupidly simple (no more crazy class structures, only simple and straight forward approach)
-4. Light-weight boilerplate (needs to be fast and performant)
-5. 1-step setup and 1-step deploy
-
 ### Things you can do
+
+### dotenv for dev / production environment variables
+To set environmental variables depending on your environment, we used dotenv. You simply place a .env file at the root of the app folder.
+
+.env (base)
+.env.development
+.env.production
+
+Within it, you can simply have:
+
+```
+TWITTER_KEY=xxxxx
+TWITTER_SECRET=xxxxx
+```
+
+And you would call it from your app using:
+
+```
+ENV['TWITTER_KEY']
+```
 
 #### Send Emails
 
