@@ -1,12 +1,32 @@
 class App < Sinatra::Base
 
+  # helpers  
+  helpers do 
+    # outputs json response with http status code 
+    def output(obj, code = 200)      
+      halt code, obj.to_json if obj.present?
+      return false
+    end
+
+    # email using pony
+    def email(data, template = nil)
+      if template.present?
+        file = template[:file]
+        liquid = Liquid::Template.parse(File.read(file))
+        body = liquid.render(template[:data])
+        data[:body] = body
+      end
+      Pony.mail(data)
+    end
+  end
+
   # base configuration
   configure do
 
     # set app defaults
     enable :sessions
     use Rack::Session::Pool
-    set :views, File.expand_path('../../views', __FILE__)  
+    set :views, File.expand_path('../views', __FILE__)  
     set :root, File.dirname(__FILE__)
     set :public_folder, 'public'
     set :static, true
@@ -20,18 +40,17 @@ class App < Sinatra::Base
 
     # set mailer
     Pony.options = {
-      :from => "x@x.com",
+      :from => ENV['EMAIL_DEFAULT_FROM'],
       :via => :smtp,
       :via_options => {
-        :address => 'smtp.gmail.com',
-        :port => '587',
-        :domain => 'x.com',
-        :user_name => 'x@x.com',
-        :password => 'xxxxx',
+        :address => ENV['EMAIL_HOST'],
+        :port => ENV['EMAIL_PORT'],        
+        :user_name => ENV['EMAIL_USERNAME'],
+        :password => ENV['EMAIL_PASSWORD'],
         :authentication => :plain,
         :enable_starttls_auto => true
       }
-    }
+    } if ENV['EMAIL_HOST'].present?
 
   end
 
@@ -48,28 +67,6 @@ class App < Sinatra::Base
       BetterErrors.application_root = __dir__
       BetterErrors::Middleware.allow_ip! '172.0.0.0/0'
       bettererrors = true
-    end
-
-  end
-
-  # helpers
-  helpers do
-
-    # outputs json response with http status code 
-    def output(obj, code = 200)      
-      halt code, obj.to_json if obj.present?
-      return false
-    end
-
-    # email using pony
-    def email(data, template = nil)
-      if template.present?
-        file = template[:file]
-        liquid = Liquid::Template.parse(File.read(file))
-        body = liquid.render(template[:data])
-        data[:body] = body
-      end
-      Pony.mail(data)
     end
 
   end

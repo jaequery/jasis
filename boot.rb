@@ -61,12 +61,13 @@ Sequel.extension :seed
 Sequel::Seeder.apply(DB, "db/seeds")
 
 
-# load app
+# load helpers
+require_all './lib'
+
+# load main app
 require './app'
 
-
-# autoload
-require_all 'lib'
+# load controllers
 require_all 'controllers'
 
 
