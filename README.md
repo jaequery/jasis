@@ -6,8 +6,13 @@
 2) docker-compose
 3) jwilder/proxy
 
-### Install
+Run the jwilder/proxy daemon if you haven't already:
 
+```
+docker run --name=proxy --restart=always -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+```
+
+### Install
 1) git clone https://github.com/jaequery/jasis
 2) cd jasis
 3) docker-compose up -d
