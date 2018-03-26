@@ -9,6 +9,7 @@ class SiteApp < App
   end
 
   get "/abort" do
+    users = User.where(:first_name => 'Jae').all
     abort
   end
 

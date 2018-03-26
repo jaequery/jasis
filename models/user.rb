@@ -1,7 +1,6 @@
 class User < Sequel::Model
+  
+  plugin :secure_password
   plugin :timestamps    
-
-  def self.woah
-    return "WOAHs"
-  end
+  
 end
