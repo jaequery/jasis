@@ -1,7 +1,7 @@
 class AdminApp < App
   
   configure do
-    set :erb, :layout => :'admin/layout'
+    set :erb, :layout => 'admin/layout'.to_sym
   end
 
   get '/' do
