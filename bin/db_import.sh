@@ -1,8 +1,6 @@
 #!/bin/bash
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "loader.sh"
 file=$1
-parentdir="$(dirname "$dir")"
-app=${parentdir##*/}
 
 if [ -z "$1" ]
   then

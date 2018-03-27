@@ -1,9 +1,6 @@
 #!/bin/bash
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-parentdir="$(dirname "$dir")"
-app=${parentdir##*/}
+source "loader.sh"
 ver=$1
-
 if [ -z "$1" ]
   then
     docker exec -it ${app}_app_1 rake db:migrate
