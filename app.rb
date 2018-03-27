@@ -2,6 +2,7 @@ class App < Sinatra::Base
 
   # helpers  
   helpers do 
+    
     # outputs json response with http status code 
     def output(obj, code = 200)      
       halt code, obj.to_json if obj.present?
@@ -12,12 +13,22 @@ class App < Sinatra::Base
     def email(data, template = nil)
       if template.present?
         file = template[:file]
-        liquid = Liquid::Template.parse(File.read(file))
-        body = liquid.render(template[:data])
-        data[:body] = body
+        x = file.split(".")
+        ext = x.last.downcase
+
+        case ext
+        when 'erb'
+          body = ERB.new(File.read(file)).result(OpenStruct.new(template[:data]).instance_eval { binding })
+        when 'liquid'
+          liquid = Liquid::Template.parse(File.read(file))
+          body = liquid.render(template[:data])
+        end
+        
+        data[:html_body] = body
       end
       Pony.mail(data)
     end
+
   end
 
   # base configuration

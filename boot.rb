@@ -30,7 +30,7 @@ require 'omniauth-instagram'
 
 # init logging
 require 'logger'
-logger = Logger.new(File.open("log/error.log", 'a'))
+logger = Logger.new(STDOUT)
 logger.level = Logger::DEBUG
 set :logger, logger
 
