@@ -18,7 +18,8 @@ class App < Sinatra::Base
 
         case ext
         when 'erb'
-          body = ERB.new(File.read(file)).result(OpenStruct.new(template[:data]).instance_eval { binding })
+          locals = template[:data]          
+          body = Erubis::Eruby.new(File.read(file)).result(bindings_from_hash(locals))
         when 'liquid'
           liquid = Liquid::Template.parse(File.read(file))
           body = liquid.render(template[:data])
@@ -27,6 +28,14 @@ class App < Sinatra::Base
         data[:html_body] = body
       end
       Pony.mail(data)
+    end
+
+    def bindings_from_hash(**vars)
+      b = binding
+      vars.each do |k, v|
+        b.local_variable_set k.to_sym, v
+      end
+      return b
     end
 
   end
