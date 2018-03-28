@@ -1,29 +1,34 @@
-app:
-  build: .
-  command: bin/init.sh
-  volumes:
-    - .:/app    
-  ports:
-    - "3000"
-  links:
-  - db:db
-  environment:
-    - VIRTUAL_HOST=jasis.docker
-    - VIRTUAL_PORT=3000
-    - BUNDLE_PATH=/app/volumes/bundler
-    - RACK_ENV=development
-    - POSTGRES_PASSWORD=app
-    - POSTGRES_DB=app
-    - DB=postgres://postgres:app@db/app
-    - SESSION_KEY=hak1234
+version: '2'
 
-db:
-  image: postgres
-  environment:
-    - POSTGRES_PASSWORD=app
-    - POSTGRES_DB=app
-  volumes:
-    - ./db/sql:/db/sql
-  tty: true
-  ports:
-    - "5432"
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=app
+      - POSTGRES_DB=app
+    volumes:
+      - ./db/sql:/db/sql
+    tty: true
+    ports:
+      - "5432"
+
+  app:
+    build: .
+    command: ["./bin/docker/wait-for.sh", "db:5432", "--", "./bin/docker/init.sh"]
+    volumes:
+      - .:/app    
+    ports:
+      - "3000"
+    links:
+      - db:db
+    depends_on:
+      - db
+    environment:
+      - VIRTUAL_HOST=jasis.docker
+      - VIRTUAL_PORT=3000
+      - BUNDLE_PATH=/app/volumes/bundler
+      - RACK_ENV=development
+      - POSTGRES_PASSWORD=app
+      - POSTGRES_DB=app
+      - DB=postgres://postgres:app@db/app
+      - SESSION_KEY=hak1234
