@@ -31,6 +31,20 @@ docker run --name=proxy --restart=always -d -p 80:80 -v /var/run/docker.sock:/tm
 4) your site should now show up on http://jasis.docker (update VIRTUAL_HOST from docker-compose.yml)
 
 
+### Checklist
+- [x] setup sinatra modular structure with sequel / postgres
+- [x] add Docker support
+- [x] add migrations
+- [x] add seeds
+- [x] add email w/ template support
+- [x] add bettererrors
+- [x] add db export, db import sh scripts
+- [x] add deploy script
+- [ ] add admin
+- [ ] add blog
+- [ ] add shop
+- [ ] add forum
+
 ### Some of the essential features that makes Jasis great!
 
 #### error debugging with bettererrors 
