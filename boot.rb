@@ -46,6 +46,7 @@ DB.loggers << logger
 Sequel::Model.db.extension(:pagination)
 Sequel::Model.strict_param_setting = false
 DB.extension :pg_array, :pg_json, :connection_validator
+DB.extension :auto_literal_strings
 DB.pool.connection_validation_timeout = -1
 require_all 'models'
 
