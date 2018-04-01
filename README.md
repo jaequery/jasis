@@ -11,23 +11,24 @@ It was inspired heavily by Padrino, but it takes it a notch further in terms of 
 4. Stupidly simple (no crazy class hierchy, just plain simple approach)
 5. Faster and lighter, up to 30% ~ 40% faster than Rails
 
-### Pre-requisites
+### Setup
 
-It needs Docker with:
-1)  dnsmasq
-2) jwilder/nginx-proxy
-3) docker-compose
+Jasis is developed to work within the following requirements:
+- docker and docker-compose
+- jwilder/proxy
+- dnsmasq w/ .docker extensions mapped to your docker machine's ip address
 
-Or you can simply install:
-dinghy for OSX
-or 
-dory for Ubuntu / Linux
+Therefore, I recommend the following.
 
-Run the jwilder/proxy daemon if you haven't already:
+For OSX:
 
-```
-docker run --name=proxy --restart=always -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
-```
+- install Dinghy, this will setup everything for you to run the most Docker environment on your OSX (https://github.com/codekitchen/dinghy)
+
+For Ubuntu:
+
+- install docker and docker-compose
+- dory (https://github.com/FreedomBen/dory)
+
 
 ### Install
 1) git clone https://github.com/jaequery/jasis
