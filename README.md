@@ -15,8 +15,10 @@ It was inspired heavily by Padrino, but it takes it a notch further in terms of 
 
 Jasis is developed to work within the following requirements:
 - docker and docker-compose
-- jwilder/proxy
+- jwilder/nginx-proxy Docker image running listening on port 80
 - dnsmasq w/ .docker extensions mapped to your docker machine's ip address
+
+Having this allows you to virtual host any sites through Docker with a .docker domain extension (ie; http://jasis.docker). This means no more fiddling with port numbers and updating your hosts file to point to them.
 
 Therefore, I recommend the following.
 
