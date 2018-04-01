@@ -7,8 +7,8 @@ It was inspired heavily by Padrino, but it takes it a notch further in terms of 
 
 1. 100% Docker-based for easy setup and deployment
 2. Explicit by design, no more black magic, know how everything gets loaded
-3. Less way of doing things the better (less files, less methods, less everything!)
-4. Keep things stupidly simple (no more crazy class structures, just simple and straight forward approach)
+3. Minimal to the core (less files, less codes)
+4. Stupidly simple (no crazy class hierchy, just plain simple approach)
 5. Faster and lighter, up to 30% ~ 40% faster than Rails
 
 ### Pre-requisites
