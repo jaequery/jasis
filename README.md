@@ -13,9 +13,15 @@ It was inspired heavily by Padrino, but it takes it a notch further in terms of 
 
 ### Pre-requisites
 
-1) docker
-2) docker-compose
-3) jwilder/proxy
+It needs Docker with:
+1)  dnsmasq
+2) jwilder/nginx-proxy
+3) docker-compose
+
+Or you can simply install:
+dinghy for OSX
+or 
+dory for Ubuntu / Linux
 
 Run the jwilder/proxy daemon if you haven't already:
 
