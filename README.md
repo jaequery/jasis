@@ -5,12 +5,11 @@ It was inspired heavily by Padrino, but it takes it a notch further in terms of 
 
 ### What is Jasis?
 
-1. No more black magic (you should know how everything that gets loaded)
-2. Less way of doing things the better (less files, less methods, less everything)
-3. Keep things stupidly simple (no more crazy class structures, only simple and straight forward approach)
-4. Light-weight boilerplate (needs to be fast and performant)
-5. 1-step setup and 1-step deploy
-
+1. 100% Docker-based for easy setup and deployment
+2. Explicit by design, no more black magic, know how everything gets loaded
+3. Less way of doing things the better (less files, less methods, less everything!)
+4. Keep things stupidly simple (no more crazy class structures, just simple and straight forward approach)
+5. Faster and lighter, up to 30% ~ 40% faster than Rails
 
 ### Pre-requisites
 
