@@ -5,24 +5,32 @@ It was inspired heavily by Padrino, but it takes it a notch further in terms of 
 
 ### What is Jasis?
 
-1. No more black magic (you should know how everything that gets loaded)
-2. Less way of doing things the better (less files, less methods, less everything)
-3. Keep things stupidly simple (no more crazy class structures, only simple and straight forward approach)
-4. Light-weight boilerplate (needs to be fast and performant)
-5. 1-step setup and 1-step deploy
+1. 100% Docker-based for easy setup and deployment
+2. Explicit by design, no more black magic, know how everything gets loaded
+3. Minimal to the core (less files, less codes)
+4. Stupidly simple (no crazy class hierchy, just plain simple approach)
+5. Faster and lighter, up to 30% ~ 40% faster than Rails
 
+### Setup
 
-### Pre-requisites
+Jasis is developed to work within the following requirements:
+- docker and docker-compose
+- jwilder/nginx-proxy Docker image running listening on port 80
+- dnsmasq w/ .docker extensions mapped to your docker machine's ip address
 
-1) docker
-2) docker-compose
-3) jwilder/proxy
+Having this allows you to virtual host any sites through Docker with a .docker domain extension (ie; http://jasis.docker). This means no more fiddling with port numbers and updating your hosts file to point to them.
 
-Run the jwilder/proxy daemon if you haven't already:
+Therefore, I recommend the following.
 
-```
-docker run --name=proxy --restart=always -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
-```
+For OSX:
+
+- install Dinghy, this will setup everything for you to run the most Docker environment on your OSX (https://github.com/codekitchen/dinghy)
+
+For Ubuntu:
+
+- install docker and docker-compose
+- dory (https://github.com/FreedomBen/dory)
+
 
 ### Install
 1) git clone https://github.com/jaequery/jasis
