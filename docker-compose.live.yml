@@ -11,6 +11,7 @@ services:
     tty: true
     ports:
       - "5432"
+    network_mode: "bridge"
 
   app:
     build: .
@@ -32,3 +33,4 @@ services:
       - POSTGRES_DB=app
       - DB=postgres://postgres:app@db/app
       - SESSION_KEY=hak1234
+    network_mode: "bridge"
