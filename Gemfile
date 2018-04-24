@@ -12,6 +12,7 @@ gem 'sequel'
 gem 'sequel_secure_password'
 gem 'sequel-seed'
 gem 'sinatra-sequel'
+
 gem 'pg'
 gem 'sequel_pg', :require=>'sequel'
 gem 'awesome_print'
@@ -39,6 +40,7 @@ gem 'omniauth-linkedin'
 group :development, :test do
   gem 'rspec'
   gem "better_errors"
+  gem 'pry'
   gem "binding_of_caller"  
 end
 

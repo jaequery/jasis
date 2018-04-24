@@ -38,6 +38,10 @@ class App < Sinatra::Base
       return b
     end
 
+    def debug
+      require 'pry-remote'; binding.remote_pry
+    end
+
   end
 
   # base configuration

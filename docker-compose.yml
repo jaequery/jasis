@@ -23,6 +23,8 @@ services:
       - db:db
     depends_on:
       - db
+    stdin_open: true
+    tty: true
     environment:
       - VIRTUAL_HOST=jasis.docker
       - VIRTUAL_PORT=3000
