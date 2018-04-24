@@ -48,6 +48,7 @@ For Ubuntu:
 - [x] add bettererrors
 - [x] add db export, db import sh scripts
 - [x] add deploy script
+- [ ] add contact us
 - [ ] add admin
 - [ ] add blog
 - [ ] add shop
