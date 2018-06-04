@@ -82,7 +82,8 @@ class App < Sinatra::Base
   configure :development do        
     
     # enable hot-reload
-    register Sinatra::Reloader 
+    register Sinatra::Reloader     
+    also_reload 'models/*.rb'
     
     # enable error debugger
     bettererrors = false if bettererrors.nil?
