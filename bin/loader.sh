@@ -2,6 +2,12 @@
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 parentdir="$(dirname "$dir")"
 app_path=${parentdir##*/} 
-app="${app_path//-}"
-app="${app_path//_}"
+
+da=`docker-compose ps | tail -n 1 | awk '{print $1;}'`
+
+if [[ $da = *"-"* ]]; then
+  app="${app_path}"
+else
+  app="${app_path//-}"
+fi
 
