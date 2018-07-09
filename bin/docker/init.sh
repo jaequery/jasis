@@ -1,4 +1,6 @@
 #!/bin/bash
 bundle 
-sequel -m db/migrations $DB
-puma -b tcp://0.0.0.0:3000
+#bash
+#PATH=$PATH:/app/volumes/bundler/bin
+bundle exec sequel -m db/migrations $DB
+bundle exec puma -b tcp://0.0.0.0:3000

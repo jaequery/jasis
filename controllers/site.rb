@@ -5,8 +5,6 @@ class SiteApp < App
   end
 
   get "/" do
-
-    require 'pry-remote'; binding.remote_pry
     erb :index
   end
 

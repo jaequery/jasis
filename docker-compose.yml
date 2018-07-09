@@ -29,6 +29,7 @@ services:
       - VIRTUAL_HOST=jasis.docker
       - VIRTUAL_PORT=3000
       - BUNDLE_PATH=/app/volumes/bundler
+      - BUNDLE_BIN=/app/volumes/bundler/bin
       - RACK_ENV=development
       - POSTGRES_PASSWORD=app
       - POSTGRES_DB=app
