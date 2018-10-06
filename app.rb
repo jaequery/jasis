@@ -99,10 +99,10 @@ class App < Sinatra::Base
 
   before do 
     
-    if request.body.size > 0      
+    if request.body.size > 0            
       request.body.rewind
-      h = ActiveSupport::JSON.decode(request.body.read)
-      @params = h.symbolize if h.class == Hash
+      content = request.body.read      
+      @params = ActiveSupport::JSON.decode(content).symbolize if content[0] == '{' && content[content.length - 1] == '}' && content[1] == '"'      
     end
     
   end

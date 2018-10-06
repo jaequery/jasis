@@ -10,8 +10,8 @@ end
 
 class Hash
 
-  def symbolize(hash)  
-    return JSON.parse(hash.to_json, symbolize_names: true) if hash.present?
+  def symbolize()  
+    return JSON.parse(self.to_json, symbolize_names: true) if self.present?
     return false
   end
   
