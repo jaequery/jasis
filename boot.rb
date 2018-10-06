@@ -20,6 +20,7 @@ if development?
   require 'sinatra/reloader' # hot-reload
   require "better_errors" # bettererror
   require "pry"
+  require 'pry-remote'
 end
 
 

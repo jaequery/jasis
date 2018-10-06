@@ -9,6 +9,12 @@ class NilClass
 end
 
 class Hash
+
+  def symbolize(hash)  
+    return JSON.parse(hash.to_json, symbolize_names: true) if hash.present?
+    return false
+  end
+  
   def except(*keys)
     dup.except!(*keys)
   end
@@ -111,4 +117,3 @@ class String
   end
 
 end
-

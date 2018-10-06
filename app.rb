@@ -95,6 +95,17 @@ class App < Sinatra::Base
     end
 
   end
+
+
+  before do 
+    
+    if request.body.size > 0      
+      request.body.rewind
+      h = ActiveSupport::JSON.decode(request.body.read)
+      @params = h.symbolize if h.class == Hash
+    end
+    
+  end
   
   # will be used to display 404 error pages
   # not_found do
