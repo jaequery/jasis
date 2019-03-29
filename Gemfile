@@ -42,6 +42,5 @@ group :development, :test do
   gem "better_errors"
   gem 'pry'
   gem 'pry-remote'
-  gem "binding_of_caller"  
+  gem "binding_of_caller"
 end
-
