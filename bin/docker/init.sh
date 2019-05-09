@@ -1,4 +1,5 @@
 #!/bin/bash
+bundle config build.nokogiri --use-system-libraries
 bundle 
 #bash
 #PATH=$PATH:/app/volumes/bundler/bin
