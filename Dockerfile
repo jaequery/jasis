@@ -1,15 +1,8 @@
-FROM ruby:2.4.3
-RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
-
-RUN apt-get update -qq && apt-get install -y \
-  build-essential \
-  patch \
-  ruby-dev \
-  zlib1g-dev \
-  liblzma-dev \
-  libxml2-dev \
-  libxslt-dev
-
+FROM ruby:2.6.3
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev postgresql-client
+#RUN apt-get install emacs24-nox -y
+ENV TERM xterm-256color
 RUN mkdir /app
 WORKDIR /app
-ADD . /app
+RUN gem install bundler
+EXPOSE 3000

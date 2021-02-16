@@ -1,3 +1,4 @@
+ruby '~> 2.6.3'
 # frozen_string_literal: true
 source "https://rubygems.org"
 
@@ -18,7 +19,7 @@ gem 'sequel_pg', :require=>'sequel'
 gem 'awesome_print'
 gem 'puma'
 gem 'webrick'
-gem 'thin'
+#gem 'thin'
 gem 'racksh'
 gem 'url_safe_base64'
 gem 'bcrypt'

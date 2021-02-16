@@ -1,37 +1,38 @@
-version: '2'
+version: '3.7'
 
 services:
   db:
-    image: postgres
+    image: postgres:11
+    network_mode: bridge
+    env_file: .env
     environment:
-      - POSTGRES_PASSWORD=app
-      - POSTGRES_DB=app
-    volumes:
-      - ./db/sql:/db/sql
-    tty: true
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PORT: ${POSTGRES_PORT}
     ports:
-      - "5432"
+      - 5434:5432
 
   app:
     build: .
     command: ["./bin/docker/wait-for.sh", "db:5432", "--", "./bin/docker/init.sh"]
     volumes:
-      - .:/app    
+      - .:/app
     ports:
-      - "3000"
+      - 3009:3000
     links:
       - db:db
     depends_on:
       - db
     stdin_open: true
+    env_file: .env
     tty: true
+    network_mode: bridge
     environment:
       - VIRTUAL_HOST=jasis.docker
       - VIRTUAL_PORT=3000
       - BUNDLE_PATH=/app/volumes/bundler
       - BUNDLE_BIN=/app/volumes/bundler/bin
       - RACK_ENV=development
-      - POSTGRES_PASSWORD=app
-      - POSTGRES_DB=app
-      - DB=postgres://postgres:app@db/app
+      - DB=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}
       - SESSION_KEY=hak1234
