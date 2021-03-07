@@ -1,4 +1,4 @@
-ruby '~> 2.6.3'
+ruby '~> 3.0.0'
 # frozen_string_literal: true
 source "https://rubygems.org"
 
