@@ -90,7 +90,7 @@ GEM
       slop (~> 3.0)
     puma (5.2.1)
       nio4r (~> 2.0)
-    rack (2.2.3)
+    rack (2.2.6.2)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-parser (0.7.0)
@@ -155,6 +155,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  x86_64-linux
 
 DEPENDENCIES
   activesupport
